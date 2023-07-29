@@ -29,6 +29,7 @@
 
 .place-info {
   height: fit-content;
+  margin-left: 15px;
 }
 
 .place-image-container {
@@ -36,4 +37,11 @@
   justify-content: center;
   align-items: center;
   width: 8vw;
+  padding: 0.25rem;
+}
+
+.place-image {
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
 }

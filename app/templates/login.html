@@ -5,9 +5,9 @@
   integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
   crossorigin="anonymous"
 />
-<link href="{{ url_for('static', path='/css/form.css') }}" rel="stylesheet" />
-<div class="form-container">
-  <form id="login-form" method="post" action="">
+<link href="{{ url_for('static', path='/css/components/form.css') }}" rel="stylesheet" />
+<div>
+  <form id="login-form" class="form" method="post" action="">
     <p id="form-error"></p>
     <label for="username">Username: </label>
     <input type="text" name="username" id="username" required />

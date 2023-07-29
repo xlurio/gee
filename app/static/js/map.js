@@ -66,7 +66,7 @@ function renderPlaceInfo(place) {
   placeInfo.style.height = "20vh";
   placeInfo.innerHTML = `
       <div class="place-image-container">
-        <img src="${place.image}" alt="${place.name}" />
+        <img class="place-image" src="${place.image}" alt="${place.name}" />
       </div>
       <div class="place-info">
         <h3>${place.name}</h3>
@@ -123,7 +123,7 @@ async function renderMapWithInCoords(coords) {
     clearTimeout(searchPlacesTimeout);
     searchPlacesTimeout = setTimeout(async () => {
       await showPlacesForCurrentCoords(map.getBounds());
-    }, 5);
+    }, 120);
   });
 
   try {
