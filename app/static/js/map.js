@@ -62,15 +62,14 @@ function drawMarkerForPlace(place) {
 
 function renderPlaceInfo(place) {
   const placeInfo = document.createElement("div");
-  placeInfo.classList.add("place-info-container");
-  placeInfo.style.height = "20vh";
+  placeInfo.classList.add("place-info-container", "rounded", "shadow-sm", "vh-20");
   placeInfo.innerHTML = `
-      <div class="place-image-container">
-        <img class="place-image" src="${place.image}" alt="${place.name}" />
+      <div class="place-image-container rounded">
+        <img class="place-image bg-secondary rounded" src="${place.image}" alt="${place.name}" />
       </div>
       <div class="place-info">
         <h3>${place.name}</h3>
-        <p>${place.description}</p>
+        <p class="fw-lighter text-light-50">${place.description}</p>
       </div>
   `;
 
@@ -111,7 +110,7 @@ async function renderMapWithInCoords(coords) {
   let searchPlacesTimeout;
 
   document.getElementById("map").style.height = window.innerHeight + "px";
-  document.getElementById("map").style.width = window.innerWidth * 0.75 + "px";
+  document.getElementById("map").style.width = window.innerWidth * 0.5 + "px";
 
   map = new Map(document.getElementById("map"), {
     center: { lat: coords.latitude, lng: coords.longitude },
