@@ -1,0 +1,109 @@
+services:
+  database:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=${DATABASE_NAME}
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    ports:
+      - "8001:5432"
+
+  search:
+    image: elasticsearch:8.8.1
+    restart: always
+    environment:
+      - "discovery.type=single-node"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "ES_INDEX_BUFFER_SIZE=50%"
+    volumes:
+      - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+
+  broker:
+    image: rabbitmq:3.12.2
+    restart: always
+    ports:
+      - "8002:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbit
+      - RABBITMQ_DEFAULT_PASS=rabbit
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sh -c "\
+             python ./app/pre_start.py && \
+             celery -A app.worker worker -l info -c 1"
+    environment:
+      - "GOOGLEMAPSJS_API_KEY=${GOOGLEMAPSJS_API_KEY}"
+      - "GOOGLEGEOCODINGAPI_API_KEY=${GOOGLEGEOCODINGAPI_API_KEY}"
+      - "DATABASE_PROTOCOL=${DATABASE_PROTOCOL}"
+      - "DATABASE_HOST=${DATABASE_HOST}"
+      - "DATABASE_PORT=${DATABASE_PORT}"
+      - "DATABASE_NAME=${DATABASE_NAME}"
+      - "DATABASE_USER=${DATABASE_USER}"
+      - "DATABASE_PASSWORD=${DATABASE_PASSWORD}"
+      - "SECRET_KEY=${SECRET_KEY}"
+      - "SMTP_HOST=${SMTP_HOST}"
+      - "SMTP_PORT=${SMTP_PORT}"
+      - "SMTP_USERNAME=${SMTP_USERNAME}"
+      - "SMTP_PASSWORD=${SMTP_PASSWORD}"
+      - "SENDER_EMAIL=${SENDER_EMAIL}"
+      - "ELASTICSEARCH_PROTOCOL=${ELASTICSEARCH_PROTOCOL}"
+      - "ELASTICSEARCH_HOST=${ELASTICSEARCH_HOST}"
+      - "ELASTICSEARCH_PORT=${ELASTICSEARCH_PORT}"
+      - "BROKER_PROTOCOL=${BROKER_PROTOCOL}"
+      - "BROKER_HOST=${BROKER_HOST}"
+      - "BROKER_PORT=${BROKER_PORT}"
+      - "BROKER_USERNAME=${BROKER_USERNAME}"
+      - "BROKER_PASSWORD=${BROKER_PASSWORD}"
+    volumes:
+      - ./app/:/app/app/
+
+  mail:
+    build: 
+      context: .
+      dockerfile: Dockerfile.mailhog
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sh -c "\
+             python ./app/pre_start.py && \
+             alembic upgrade head && \
+             uvicorn app.main:app --host 0.0.0.0 --reload"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app/:/app/app/
+    environment:
+      - "GOOGLEMAPSJS_API_KEY=${GOOGLEMAPSJS_API_KEY}"
+      - "GOOGLEGEOCODINGAPI_API_KEY=${GOOGLEGEOCODINGAPI_API_KEY}"
+      - "DATABASE_PROTOCOL=${DATABASE_PROTOCOL}"
+      - "DATABASE_HOST=${DATABASE_HOST}"
+      - "DATABASE_PORT=${DATABASE_PORT}"
+      - "DATABASE_NAME=${DATABASE_NAME}"
+      - "DATABASE_USER=${DATABASE_USER}"
+      - "DATABASE_PASSWORD=${DATABASE_PASSWORD}"
+      - "SECRET_KEY=${SECRET_KEY}"
+      - "SMTP_HOST=${SMTP_HOST}"
+      - "SMTP_PORT=${SMTP_PORT}"
+      - "SMTP_USERNAME=${SMTP_USERNAME}"
+      - "SMTP_PASSWORD=${SMTP_PASSWORD}"
+      - "SENDER_EMAIL=${SENDER_EMAIL}"
+      - "ELASTICSEARCH_PROTOCOL=${ELASTICSEARCH_PROTOCOL}"
+      - "ELASTICSEARCH_HOST=${ELASTICSEARCH_HOST}"
+      - "ELASTICSEARCH_PORT=${ELASTICSEARCH_PORT}"
+      - "BROKER_PROTOCOL=${BROKER_PROTOCOL}"
+      - "BROKER_HOST=${BROKER_HOST}"
+      - "BROKER_PORT=${BROKER_PORT}"
+      - "BROKER_USERNAME=${BROKER_USERNAME}"
+      - "BROKER_PASSWORD=${BROKER_PASSWORD}"
+    depends_on:
+      - database
+      - search
+      - broker
+      - worker

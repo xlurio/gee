@@ -1,0 +1,18 @@
+.floating-button,
+.floating-button:hover,
+.floating-button:focus .floating-button:active {
+  align-items: center;
+  background-color: var(--bs-primary);
+  border-style: none;
+  border-radius: 100%;
+  bottom: 1.5rem;
+  color: var(--bs-white);
+  display: flex;
+  font-size: 1.5rem;
+  height: 64px;
+  justify-content: center;
+  position: absolute;
+  right: 1.5rem;
+  width: 64px;
+  text-decoration: none;
+}

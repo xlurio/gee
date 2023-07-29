@@ -1,0 +1,39 @@
+.map {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.map-container {
+  height: 500px;
+  width: 500px;
+  position: sticky;
+}
+
+.map-page-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 25vw;
+  height: 100vh;
+}
+
+.place-info-container {
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  margin: 1rem 0;
+  border-top: 1px solid var(--bs-gray-600);
+  border-bottom: 1px solid var(--bs-gray-600);
+}
+
+.place-info {
+  height: fit-content;
+}
+
+.place-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8vw;
+}
