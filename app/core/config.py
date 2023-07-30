@@ -22,6 +22,7 @@ class Settings(BaseSettings):
     STATICFILES_DIR: str = os.path.join(_get_root_dir(), "static")
     GOOGLEMAPSJS_API_KEY: str
     GOOGLEGEOCODINGAPI_API_KEY: str
+    GOOGLEPLACESAPI_API_KEY: str
     BACKEND_CORS_ORIGINS: list[str] = ["*"]
     DATABASE_PROTOCOL: str
     DATABASE_HOST: str
