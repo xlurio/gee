@@ -21,9 +21,9 @@
 .place-info-container {
   display: flex;
   flex-direction: row;
-  height: fit-content;
+  height: 20vh;
   margin: 0.5rem 0;
-  background: rgba(var(--bs-light-rgb), 0.05)
+  background: rgba(var(--bs-light-rgb), 0.05);
 }
 
 .place-info {
@@ -33,6 +33,8 @@
   height: 100%;
   margin-left: 15px;
   white-space: nowrap;
+  width: 75%;
+  overflow: hidden;
 }
 
 .place-image-container {

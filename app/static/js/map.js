@@ -62,7 +62,7 @@ function drawMarkerForPlace(place) {
 
 function renderPlaceInfo(place) {
   const placeInfo = document.createElement("div");
-  placeInfo.classList.add("place-info-container", "rounded", "shadow-sm", "vh-20");
+  placeInfo.classList.add("place-info-container", "rounded", "shadow-sm");
   placeInfo.innerHTML = `
       <div class="place-image-container rounded">
         <img class="place-image bg-secondary rounded" src="${place.image}" alt="${place.name}" />
