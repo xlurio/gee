@@ -93,32 +93,32 @@ Before running the application, make sure to set the following environment varia
 
 ### Required
 
-- GOOGLEMAPSJS_API_KEY: an [API key](https://developers.google.com/maps/documentation/javascript/get-api-key) needed for the Google Maps JavaScript API
-- GOOGLEGEOCODINGAPI_API_KEY: an [API key](https://developers.google.com/maps/documentation/geocoding/get-api-key) needed for the Google Geocoding API
-- GOOGLEPLACESAPI_API_KEY: an [API key](https://developers.google.com/maps/documentation/geocoding/get-api-key) needed for the Google Places Autocomplete API
-- SECRET_KEY: secret key which will be used to generate the JWT tokens
-- DATABASE_PROTOCOL: the protocol for the relational database (`postgresql`, `mysql`, `sqlite`, etc) (if using the default docker compose, it will be `postgresql`)
-- DATABASE_HOST: the host for the relational database server (if using the default docker compose, it will be `database`)
-- DATABASE_PORT: the port for the relational database server (if using the default docker compose, it will be `5432`)
-- DATABASE_NAME: the name of the database to be used in the relational database server
-- ELASTICSEARCH_PROTOCOL: the protocol to be used for the Elastic Search requests (`http` or `https`) (if using the default docker compose, it will be `http`)
-- ELASTICSEARCH_HOST: the host to be used for the Elastic Search requests (if using the default docker compose, it will be `search`)
-- ELASTICSEARCH_PORT: the port to be used for the Elastic Search requests (if using the default docker compose, it will be `9200`)
-- BROKER_PROTOCOL: the protocol to be used for the message broker, needed for `Celery` task queue (if using the default docker compose, it will be `amqp`)
-- BROKER_HOST: the protocol to be used for the message broker, needed for `Celery` task queue (if using the default docker compose, it will be `broker`)
-- BROKER_PORT: the protocol to be used for the message broker, needed for `Celery` task queue (if using the default docker compose, it will be `5672`)
-- SMTP_HOST: the host to be used for the SMTP server (if using the default docker compose, it will be `mail`)
-- SMTP_PORT: the port to be used for the SMTP server (if using the default docker compose, it will be `1025`)
-- SENDER_EMAIL: the e-mail which will be used as the mail sender
+- **GOOGLEMAPSJS_API_KEY**: an [API key](https://developers.google.com/maps/documentation/javascript/get-api-key) needed for the Google Maps JavaScript API
+- **GOOGLEGEOCODINGAPI_API_KEY**: an [API key](https://developers.google.com/maps/documentation/geocoding/get-api-key) needed for the Google Geocoding API
+- **GOOGLEPLACESAPI_API_KEY**: an [API key](https://developers.google.com/maps/documentation/geocoding/get-api-key) needed for the Google Places Autocomplete API
+- **SECRET_KEY**: secret key which will be used to generate the JWT tokens
+- **DATABASE_PROTOCOL**: the protocol for the relational database (`postgresql`, `mysql`, `sqlite`, etc) (if using the default docker compose, it will be `postgresql`)
+- **DATABASE_HOST**: the host for the relational database server (if using the default docker compose, it will be `database`)
+- **DATABASE_PORT**: the port for the relational database server (if using the default docker compose, it will be `5432`)
+- **DATABASE_NAME**: the name of the database to be used in the relational database server
+- **ELASTICSEARCH_PROTOCOL**: the protocol to be used for the Elastic Search requests (`http` or `https`) (if using the default docker compose, it will be `http`)
+- **ELASTICSEARCH_HOST**: the host to be used for the Elastic Search requests (if using the default docker compose, it will be `search`)
+- **ELASTICSEARCH_PORT**: the port to be used for the Elastic Search requests (if using the default docker compose, it will be `9200`)
+- **BROKER_PROTOCOL**: the protocol to be used for the message broker, needed for `Celery` task queue (if using the default docker compose, it will be `amqp`)
+- **BROKER_HOST**: the protocol to be used for the message broker, needed for `Celery` task queue (if using the default docker compose, it will be `broker`)
+- **BROKER_PORT**: the protocol to be used for the message broker, needed for `Celery` task queue (if using the default docker compose, it will be `5672`)
+- **SMTP_HOST**: the host to be used for the SMTP server (if using the default docker compose, it will be `mail`)
+- **SMTP_PORT**: the port to be used for the SMTP server (if using the default docker compose, it will be `1025`)
+- **SENDER_EMAIL**: the e-mail which will be used as the mail sender
 
 ### Optional
 
-- DATABASE_USER: the username to connect to the relational database server if needed (if using the default docker compose, it will be `postgres`)
-- DATABASE_PASSWORD: the password to connect to the relational database server if needed (if using the default docker compose, it will be `postgres`)
-- BROKER_USERNAME: the username to connect to the message broker if needed (if using the default docker compose, it will be `rabbit`)
-- BROKER_PASSWORD: the password to connect to the message broker if needed (if using the default docker compose, it will be `rabbit`)
-- SMTP_USERNAME: the username to connect to the SMTP server if needed (if using the default docker compose, it must be blank)
-- SMTP_PASSWORD: the password to connect to the SMTP server if needed (if using the default docker compose, it must be blank)
+- **DATABASE_USER**: the username to connect to the relational database server if needed (if using the default docker compose, it will be `postgres`)
+- **DATABASE_PASSWORD**: the password to connect to the relational database server if needed (if using the default docker compose, it will be `postgres`)
+- **BROKER_USERNAME**: the username to connect to the message broker if needed (if using the default docker compose, it will be `rabbit`)
+- **BROKER_PASSWORD**: the password to connect to the message broker if needed (if using the default docker compose, it will be `rabbit`)
+- **SMTP_USERNAME**: the username to connect to the SMTP server if needed (if using the default docker compose, it must be blank)
+- **SMTP_PASSWORD**: the password to connect to the SMTP server if needed (if using the default docker compose, it must be blank)
 
 You can set the environment variables in a .env file in the root of the project.
 
@@ -418,6 +418,48 @@ Now just you can continue to register new places or just eat some vegan cake at 
         ]
       }
       ```
+
+To add a section to the README.md file with previewed improvements, you can follow the markdown format to present the upcoming features or enhancements. Here's an example of how you can do it:
+
+## Planned Improvements
+
+We are continuously working on improving our FastAPI web application. Below are some of the upcoming features and enhancements that we plan to implement:
+
+## Features
+
+1. **My Places**: Allow users to manage places they favorited or marked.
+
+2. **Favorites**: Introduce a favorites feature that allows users to save and manage their favorite places on the map.
+
+3. **Rating and Reviews**: Implement a rating and review system for places, enabling users to share their experiences and feedback.
+
+4. **Advanced Search**: Enhance the search functionality to allow users to search for places based on specific categories, keywords, and location proximity.
+
+5. **Localization Support**: Add support for multiple languages to make the application more accessible to a global audience.
+
+6. **Social Media Integration**: Enable users to share places and their experiences on social media platforms like Facebook and Twitter.
+
+7. **User Authentication Enhancements**: Strengthen user authentication by authorizing users using session instead of local storage.
+
+8. **Improved Error Handling**: Enhance error handling and error messages to provide users with more informative feedback.
+
+9. **Admin Dashboard**: Create an admin dashboard with analytics and insights to manage user data and monitor application usage.
+
+10. **Performance Optimization**: Continuously optimize the backend and frontend code to improve overall application performance.
+
+## Internals
+
+1. **Tests**: Implement unit tests to grant the application integrity
+
+2. **Formatters and Linters**: Integrate formatters and linters to standardize code style
+
+4. **CI/CD**: Automatize testing and deploying to speed up the development
+
+5. **Docstrings**: Add docstrings to functions, methods, classes and modules to improve code readability
+
+Please note that the above improvements are subject to change based on user feedback and evolving project requirements. We are always open to suggestions and welcome contributions from the community to make our FastAPI web application even better.
+
+Stay tuned for updates as we roll out these exciting features in the upcoming releases!
 
 ## Contributing
 
