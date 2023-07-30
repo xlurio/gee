@@ -1,12 +1,12 @@
 /**
- * 
- * @param {Response} response 
+ *
+ * @param {Response} response
  */
-async function raiseForBadRequest(response){
+async function raiseForBadRequest(response) {
   try {
     content = await response.json();
     error_detail = content.detail;
-  } catch(error){
+  } catch (error) {
     error_detail = response.statusText;
   }
 
@@ -31,7 +31,13 @@ async function submitForm(body) {
     await raiseForBadRequest(response);
   }
 
-  window.location.href = "/login";
+  const nextPage = new URLSearchParams(window.location.search).get("next");
+
+  if (nextPage) {
+    window.location.href = "/login?=" + nextPage;
+  } else {
+    window.location.href = "/login";
+  }
 }
 
 /**

@@ -1,3 +1,15 @@
+function configureRegisterLink() {
+  const nextPage = new URLSearchParams(window.location.search).get("next");
+  const registerLink = document.getElementById("register-link");
+
+  if (nextPage) {
+    registerLink.setAttribute(
+      "href",
+      registerLink.getAttribute("href") + "?next=" + nextPage
+    );
+  }
+}
+
 function redirectToNextPage() {
   const nextPage = new URLSearchParams(window.location.search).get("next");
 
@@ -9,14 +21,14 @@ function redirectToNextPage() {
 }
 
 /**
- * 
- * @param {Response} response 
+ *
+ * @param {Response} response
  */
-async function raiseForBadRequest(response){
+async function raiseForBadRequest(response) {
   try {
     content = await response.json();
     error_detail = content.detail;
-  } catch(error){
+  } catch (error) {
     error_detail = response.statusText;
   }
 
@@ -74,6 +86,7 @@ function configureForm() {
 }
 
 try {
+  configureRegisterLink();
   configureForm();
 } catch (error) {
   console.error(error);

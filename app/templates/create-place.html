@@ -5,39 +5,67 @@
   integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
   crossorigin="anonymous"
 />
-<link href="{{ url_for('static', path='/css/components/form.css') }}" rel="stylesheet" />
-<div>
-  <form id="place-form" class="form" method="post" action="">
+<link
+  href="{{ url_for('static', path='/css/components/form.css') }}"
+  rel="stylesheet"
+/>
+<div class="d-flex flex-column align-items-center mt-5">
+  <h2>Create new place</h2>
+  <form id="place-form" class="form w-75" method="post" action="">
     <p id="form-error"></p>
-    <label for="place_image">Image: </label>
-    <input type="file" name="place_image" id="place_image" />
-    <label for="name">Name: </label>
-    <input type="text" name="name" id="name" required />
-    <label for="description">Description: </label>
-    <textarea name="description" id="description" required></textarea>
-    <label for="country">Country: </label>
-    <input type="text" name="country" id="country" required />
-    <label for="city">City: </label>
-    <input type="text" name="city" id="city" required />
-    <label for="street">Street: </label>
-    <input type="text" name="street" id="street" required />
-    <label for="number">Number: </label>
-    <input type="text" name="number" id="number" required />
+    <label class="form-label" for="place_image">Image: </label>
+    <input
+      class="form-control"form-control
+      type="file"
+      name="place_image"
+      id="place_image"
+    />
+    <label class="form-label" for="name">Name: </label>
+    <input class="form-control" type="text" name="name" id="name" required />
+    <label class="form-label" for="description">Description: </label>
+    <textarea class="form-control" name="description" id="description" required></textarea>
+    <label class="form-label" for="country">Country: </label>
+    <input
+      class="form-control"
+      type="text"
+      name="country"
+      id="country"
+      required
+    />
+    <label class="form-label" for="city">City: </label>
+    <input class="form-control" type="text" name="city" id="city" required />
+    <label class="form-label" for="street">Street: </label>
+    <input
+      class="form-control"
+      type="text"
+      name="street"
+      id="street"
+      required
+    />
+    <label class="form-label" for="number">Number: </label>
+    <input
+      class="form-control"
+      type="text"
+      name="number"
+      id="number"
+      required
+    />
     <fieldset>
       <legend>Categories</legend>
       {% for category in categories %}
-      <label for="{{ category.value }}">
+      <label class="form-label form-check-label" for="{{ category.value }}">
         <input
+          class="form-check-input ms-3"
           type="checkbox"
           name="categories"
           id="{{ category.value }}"
           value="{{ category.value }}"
         />
-        {{ category.value }}
+        {{ category.verbose_name() }}
       </label>
       {% endfor %}
     </fieldset>
-    <input type="submit" value="Send" />
+    <input class="btn btn-primary mt-3" type="submit" value="Send" />
   </form>
 </div>
 <script
