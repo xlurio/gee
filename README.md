@@ -427,7 +427,7 @@ We are continuously working on improving our FastAPI web application. Below are 
 
 ## Features
 
-1. **Responsive UI**: Improve UI resposivity for better UX and improved accessibity.
+1. **Responsive UI**: Improve UI resposiveness for better UX and improved accessibity.
 
 2. **My Places**: Allow users to manage places they favorited or marked.
 
