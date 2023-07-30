@@ -3,6 +3,7 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, File, Request, UploadFile
 
 from app.auth.dependencies import get_current_user
+from app.core import response_schemas
 from app.core.templates import templates
 from app.data_access import models, schemas
 from app.data_access.constants import Categories
@@ -17,13 +18,19 @@ from app.storage.tasks import store_place_image
 router = APIRouter()
 
 
-@router.post("/api/places", response_model=schemas.Place, status_code=201)
+@router.post(
+    "/api/places",
+    response_model=schemas.Place,
+    status_code=201,
+    responses=response_schemas.RESPONSES,
+)
 async def create_place(
     uow: Annotated[UnitOfWork, Depends(get_unit_of_work)],
     curr_user: Annotated[models.User, Depends(get_current_user)],
     place_data: Annotated[schemas.PlaceCreate, Depends(schemas.PlaceCreate.as_form())],
     place_image: Annotated[UploadFile | None, File()] = None,
 ):
+    """Mark a new place in the map"""
     place = uow.create_place(place_data, curr_user.id)
     uow.commit_index_and_refresh(place)
 
@@ -36,4 +43,6 @@ async def create_place(
 
 @router.get("/create-place")
 def display_create_place_form(request: Request):
-    return templates.TemplateResponse("create-place.html", {"request": request, "categories": Categories})
+    return templates.TemplateResponse(
+        "create-place.html", {"request": request, "categories": Categories}
+    )

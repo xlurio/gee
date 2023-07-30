@@ -4,6 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.exc import IntegrityError
 
 from app.auth.services import PasswordService
+from app.core import response_schemas
 from app.data_access import schemas
 from app.data_access.dependencies import get_unit_of_work
 from app.data_access.unit_of_work import UnitOfWork
@@ -11,10 +12,16 @@ from app.data_access.unit_of_work import UnitOfWork
 router = APIRouter(prefix="/api/users")
 
 
-@router.post("/", response_model=schemas.User, status_code=201)
+@router.post(
+    "/",
+    response_model=schemas.User,
+    status_code=201,
+    responses=response_schemas.RESPONSES,
+)
 def create_user(
     uow: Annotated[UnitOfWork, Depends(get_unit_of_work)], user_data: schemas.UserCreate
 ):
+    """Create a new user"""
     hashed_password = PasswordService().hash_password(user_data.password)
 
     user = uow.create_user(
