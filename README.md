@@ -15,7 +15,7 @@
 
 ## Introduction
 
-This is a full-stack web application built to provide [brief description of the application's purpose and main functionality]. It allows users to [mention the core features or user actions it supports].
+Community driven web platform to mark and find places for people with diet restriction to eat wherever they go.
 
 ## Features
 
