@@ -453,9 +453,11 @@ We are continuously working on improving our FastAPI web application. Below are 
 
 2. **Formatters and Linters**: Integrate formatters and linters to standardize code style
 
-4. **CI/CD**: Automatize testing and deploying to speed up the development
+3. **CI/CD**: Automatize testing and deploying to speed up the development
 
-5. **Docstrings**: Add docstrings to functions, methods, classes and modules to improve code readability
+4. **Docstrings**: Add docstrings to functions, methods, classes and modules to improve code readability
+
+5. **Contributing.md**: Write contributing guidelines
 
 Please note that the above improvements are subject to change based on user feedback and evolving project requirements. We are always open to suggestions and welcome contributions from the community to make our FastAPI web application even better.
 
