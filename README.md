@@ -427,37 +427,39 @@ We are continuously working on improving our FastAPI web application. Below are 
 
 ## Features
 
-1. **My Places**: Allow users to manage places they favorited or marked.
+1. **Responsive UI**: Improve UI resposivity for better UX and improved accessibity.
 
-2. **Favorites**: Introduce a favorites feature that allows users to save and manage their favorite places on the map.
+2. **My Places**: Allow users to manage places they favorited or marked.
 
-3. **Rating and Reviews**: Implement a rating and review system for places, enabling users to share their experiences and feedback.
+3. **Favorites**: Introduce a favorites feature that allows users to save and manage their favorite places on the map.
 
-4. **Advanced Search**: Enhance the search functionality to allow users to search for places based on specific categories, keywords, and location proximity.
+4. **Rating and Reviews**: Implement a rating and review system for places, enabling users to share their experiences and feedback.
 
-5. **Localization Support**: Add support for multiple languages to make the application more accessible to a global audience.
+5. **Advanced Search**: Enhance the search functionality to allow users to search for places based on specific categories, keywords, and location proximity.
 
-6. **Social Media Integration**: Enable users to share places and their experiences on social media platforms like Facebook and Twitter.
+6. **Localization Support**: Add support for multiple languages to make the application more accessible to a global audience.
 
-7. **User Authentication Enhancements**: Strengthen user authentication by authorizing users using session instead of local storage.
+7. **Social Media Integration**: Enable users to share places and their experiences on social media platforms like Facebook and Twitter.
 
-8. **Improved Error Handling**: Enhance error handling and error messages to provide users with more informative feedback.
+8. **User Authentication Enhancements**: Strengthen user authentication by authorizing users using session instead of local storage.
 
-9. **Admin Dashboard**: Create an admin dashboard with analytics and insights to manage user data and monitor application usage.
+9. **Improved Error Handling**: Enhance error handling and error messages to provide users with more informative feedback.
 
-10. **Performance Optimization**: Continuously optimize the backend and frontend code to improve overall application performance.
+10. **Admin Dashboard**: Create an admin dashboard with analytics and insights to manage user data and monitor application usage.
+
+11. **Performance Optimization**: Continuously optimize the backend and frontend code to improve overall application performance.
 
 ## Internals
 
-1. **Tests**: Implement unit tests to grant the application integrity
+1. **Tests**: Implement unit tests to grant the application integrity.
 
-2. **Formatters and Linters**: Integrate formatters and linters to standardize code style
+2. **Formatters and Linters**: Integrate formatters and linters to standardize code style.
 
-3. **CI/CD**: Automatize testing and deploying to speed up the development
+3. **CI/CD**: Automatize testing and deploying to speed up the development.
 
-4. **Docstrings**: Add docstrings to functions, methods, classes and modules to improve code readability
+4. **Docstrings**: Add docstrings to functions, methods, classes and modules to improve code readability.
 
-5. **Contributing.md**: Write contributing guidelines
+5. **Contributing.md**: Write contributing guidelines.
 
 Please note that the above improvements are subject to change based on user feedback and evolving project requirements. We are always open to suggestions and welcome contributions from the community to make our FastAPI web application even better.
 
