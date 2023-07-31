@@ -419,8 +419,6 @@ Now just you can continue to register new places or just eat some vegan cake at 
       }
       ```
 
-To add a section to the README.md file with previewed improvements, you can follow the markdown format to present the upcoming features or enhancements. Here's an example of how you can do it:
-
 ## Planned Improvements
 
 We are continuously working on improving our FastAPI web application. Below are some of the upcoming features and enhancements that we plan to implement:
