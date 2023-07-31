@@ -441,13 +441,17 @@ We are continuously working on improving our FastAPI web application. Below are 
 
 7. **Social Media Integration**: Enable users to share places and their experiences on social media platforms like Facebook and Twitter.
 
-8. **User Authentication Enhancements**: Strengthen user authentication by authorizing users using session instead of local storage.
+8. **User Authentication Enhancements**: Strengthen user authentication by authorizing users using cookies instead of local storage.
 
 9. **Improved Error Handling**: Enhance error handling and error messages to provide users with more informative feedback.
 
-10. **Admin Dashboard**: Create an admin dashboard with analytics and insights to manage user data and monitor application usage.
+10. **Scrapers and API Integrations**: Integrate scrapers and APIs to speed up the marking
 
-11. **Performance Optimization**: Continuously optimize the backend and frontend code to improve overall application performance.
+11. **Admin Dashboard**: Create an admin dashboard with analytics and insights to manage user data and monitor application usage.
+
+12. **UI/UX Improvements**: Improve UI for better accessibility and ease of use and use dynamic pages to turn the application more fluid.
+
+13. **Performance Optimization**: Continuously optimize the backend and frontend code to improve overall application performance.
 
 ## Internals
 
